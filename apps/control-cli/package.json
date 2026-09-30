@@ -1,0 +1,43 @@
+{
+  "name": "@t3tools/control-cli",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pingdotgg/t3code",
+    "directory": "apps/control-cli"
+  },
+  "bin": {
+    "t3ctl": "./dist/bin.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "type": "module",
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "scripts": {
+    "dev": "node src/bin.ts",
+    "build": "vp pack",
+    "start": "node dist/bin.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vp test run"
+  },
+  "dependencies": {
+    "@effect/platform-node": "catalog:",
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "@t3tools/client-runtime": "workspace:*",
+    "@t3tools/contracts": "workspace:*",
+    "@t3tools/shared": "workspace:*",
+    "@types/node": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "engines": {
+    "node": ">=24.13.1"
+  }
+}

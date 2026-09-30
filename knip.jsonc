@@ -31,6 +31,9 @@
       // The Vite+ web build prerequisite.
       "ignoreDependencies": ["@effect/platform-node-shared", "@t3tools/web"],
     },
+    "apps/control-cli": {
+      "entry": ["src/bin.ts!"],
+    },
     "apps/desktop": {
       // Electron loads these bundles by filename rather than importing them.
       "entry": [
