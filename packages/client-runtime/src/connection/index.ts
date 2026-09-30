@@ -1,6 +1,7 @@
 export * from "./catalog.ts";
 export * as Connectivity from "./connectivity.ts";
 export * as CredentialStore from "./credentialStore.ts";
+export * as Driver from "./driver.ts";
 export { type ConnectionDriverProgress, type EnvironmentConnectionLease } from "./driver.ts";
 export * from "./errors.ts";
 export * from "./githubRoutingPermissions.ts";
@@ -11,6 +12,7 @@ export {
   ConnectionOnboarding,
   type PairingConnectionInput,
   type SshConnectionInput,
+  preparePairingRegistration,
 } from "./onboarding.ts";
 export * from "./presentation.ts";
 export * as ProfileStore from "./profileStore.ts";
@@ -20,6 +22,10 @@ export {
   PlatformEnvironmentRemovalError,
 } from "./registry.ts";
 export { EnvironmentSupervisor, type EnvironmentSupervisorOptions } from "./supervisor.ts";
+export * as Supervisor from "./supervisor.ts";
 export * as Wakeups from "./wakeups.ts";
 
-export { orchestrationProtocolCompatibilityError } from "./compatibility.ts";
+export {
+  appendOrchestrationProtocol,
+  orchestrationProtocolCompatibilityError,
+} from "./compatibility.ts";
