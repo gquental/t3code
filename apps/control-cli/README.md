@@ -74,3 +74,14 @@ Successful commands print JSON to stdout. `thread watch` prints a snapshot follo
 Commands are not replayed on reconnect. A transport error or timeout can occur after the server accepted a mutation. Inspect the server's current state before retrying, especially after submitting a prompt. A timed-out watch leaves any running turn active; use `thread interrupt` to stop it.
 
 The executable bundles the shared client runtime and contracts at build time. Protocol changes flow into the CLI when it is rebuilt and released; new client features still need a corresponding CLI command.
+
+## Agent skill
+
+The package includes [the `t3ctl` skill](skills/t3ctl/SKILL.md) with guidance for selecting an environment, submitting work, tracking results, and handling pending requests. Copy the `skills/t3ctl` directory into your agent's skills directory. For Codex, after a global CLI installation:
+
+```sh
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R "$(npm root -g)/@t3tools/control-cli/skills/t3ctl" "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Invoke it as `$t3ctl`, or let the agent select it for T3 Code control tasks. Other agents that support `SKILL.md` can load the same directory using their own skill installation procedure.

@@ -1,0 +1,3 @@
+interface:
+  display_name: "T3 Control CLI"
+  short_description: "Control paired T3 Code environments with t3ctl"

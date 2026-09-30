@@ -26,6 +26,7 @@ export default mergeConfig(
           const path = yield* Path.Path;
           const readme = yield* path.fromFileUrl(new URL("./README.md", import.meta.url));
           const license = yield* path.fromFileUrl(new URL("../../LICENSE", import.meta.url));
+          const skills = yield* path.fromFileUrl(new URL("./skills", import.meta.url));
           yield* Effect.all(
             [
               fs.writeFileString(
@@ -38,11 +39,12 @@ export default mergeConfig(
                   type: packageJson.type,
                   bin: { t3ctl: "./bin.mjs" },
                   engines: packageJson.engines,
-                  files: ["bin.mjs", "bin.mjs.map", "README.md", "LICENSE"],
+                  files: ["bin.mjs", "bin.mjs.map", "README.md", "LICENSE", "skills"],
                 }) + "\n",
               ),
               fs.copyFile(readme, path.join(config.outDir, "README.md")),
               fs.copyFile(license, path.join(config.outDir, "LICENSE")),
+              fs.copy(skills, path.join(config.outDir, "skills")),
             ],
             { concurrency: 3 },
           );
